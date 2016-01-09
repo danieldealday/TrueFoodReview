@@ -1,10 +1,7 @@
 var Cookies = require('cookies');
 
 var cookiesController = {
-
   setCookie: function (req, res, next) {
-    console.log('SET_COOKIE');
-    //concatenates found entered username and password as cookie for session verification
     var userpass = req.body.username + req.body.password;
     var cookie = new Cookies (req, res);
     cookies.set('secure', userpass);

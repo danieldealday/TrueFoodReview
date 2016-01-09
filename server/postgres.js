@@ -7,7 +7,6 @@ var sequelize = new Sequelize('mydb', 'student', 'ilovetesting', {
   dialect: 'postgres'
 });
 
-// HERE'S THE ONE TABLE WITH ALL DATA
 var PlaceYelp = sequelize.define('placeYelp', {
   name: {type: Sequelize.STRING, unique: true},
   rating: {type: Sequelize.FLOAT},
@@ -33,12 +32,10 @@ var Foursquare = sequelize.define('foursquare', {
 });
 
 sequelize.authenticate().then(function(err, data) {
-  console.log('Connected with PostgreSQL');
+  console.log('Connected with PostgreSQL Database');
 }).catch(function(err) {
   console.log(err.message);
 });
-
-
 
 module.exports = {
   yelp: function(data)  {
@@ -56,7 +53,7 @@ module.exports = {
           postal_code: item.postal_code
         };
         PlaceYelp.create(result).then(function() {
-          console.log("YELP DONE");
+          console.log("synced");
         });
       });
     });
@@ -76,7 +73,7 @@ module.exports = {
           postal_code: item.postal_code
         };
         Foursquare.create(result).then(function() {
-          console.log("FOUR DONE");
+          console.log("synced");
         });
       });
     });

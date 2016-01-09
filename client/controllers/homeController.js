@@ -1,15 +1,7 @@
 var app = angular
   .module('TrueFoodReview.HomeController',['ui.router'])
-  .controller('HomeController', ['$scope', HomeController])
-
-
+  .controller('HomeController', ['$scope', HomeController]);
 function HomeController($scope) {
-  console.log('hello');
   $scope.loadMap = function(){
-   
-  	// map = new google.maps.Map(document.getElementById('map'), {
-   //  	center: {lat: -34.397, lng: 150.644},
-   //  	zoom: 8
-  	// });
   };
 }

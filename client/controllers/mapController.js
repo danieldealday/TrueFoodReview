@@ -4,12 +4,5 @@ var app = angular
 
       this.map = function() {
       console.log("Sending Request to server...");
-
-      // if (this.signupForm.$valid) {
-      //   console.log("Sending Request to server...");
-      // }
-      // else {
-      //   this.signupForm.submitted = true;
-      // }
   };
 });

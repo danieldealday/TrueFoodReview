@@ -36,33 +36,20 @@ module.exports = function(req, res, next) {
             else {
               counter++;
               if(counter === yelp[0].length) {
-                console.log('going to add new restaurant ' + four[0][a].name);
-
-                console.log('old count is ' + combinedInfo[0].length);
                 combinedInfo[0].push(four[0][i]);
-                console.log('new count is ' + combinedInfo[0].length);
-                console.log(counter);
                 counter = 0;
-                console.log(counter);
-
               }
             }
           }
         }
-        console.log('here it is');
-      })
+      });
     });
   });
 
-  return promises.then(function(result) {
-    console.log(result);
-    // MUST TURN USER('STUDENT') TO SUPERUSER!!!
-    sequelize.query(`Copy (Select * From "placeYelps") To '/usr/local/var/postgres/yelp.csv' With CSV`);
-    sequelize.query(`Copy (Select * From "foursquares") To '/usr/local/var/postgres/four.csv' With CSV`);
-    res.send(result);
+  return promises.then(
+    function(result) {
+      sequelize.query(`Copy (Select * From "placeYelps") To '/usr/local/var/postgres/yelp.csv' With CSV`);
+      sequelize.query(`Copy (Select * From "foursquares") To '/usr/local/var/postgres/four.csv' With CSV`);
+      res.send(result);
   });
 };
-
-function findDupe() {
-
-}

@@ -5,7 +5,6 @@ var sequelize = new Sequelize('mydb', 'student', 'ilovetesting', {
   dialect: 'postgres'
 });
 
-//create Model-type-User for Postgres
 var Session = sequelize.define('session',
   {
     username: {
@@ -18,7 +17,7 @@ var Session = sequelize.define('session',
       field: 'cookieID'
     }
   },
-  { //tables names are fixed to Session Model based on field properties lsited above
+  {
     freezeTableName: true
   }
 );
